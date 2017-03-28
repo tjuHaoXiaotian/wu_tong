@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+            font-family: "Tahoma","Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+        }
+
+        a{
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        html{
+            height: 100%;
+        }
+
+        body{
+            position: relative;
+            /*保证页面能撑开浏览器高度时显示正常*/
+            height: auto;
+            min-height: 100%;
+        }
+
+        /* header begin */
+        #logo{
+            max-width: 1280px;
+            margin:8px auto;
+            height:68px;
+            background-image: url("img/logo.png");
+            background-repeat: no-repeat;
+        }
+
+        #menu{
+            width: 100%;
+            height:50px;
+            background-color: #1d6cb6;
+        }
+
+        #menu>ul{
+            max-width: 1280px;
+            margin:0 auto;
+            height:50px;
+            list-style: none;
+        }
+
+        #menu li{
+            float: left;
+            height:50px;
+        }
+
+        #menu a{
+            height:50px;
+            line-height: 50px;
+            display: inline-block;
+            padding-left: 30px;
+            padding-right: 30px;
+            text-align: center;
+            font-size: 16px;
+            color: white;
+        }
+
+        #menu a:hover{
+            background-color: #42bc52;
+        }
+
+        /* header end */
+
+
+        /* main content start */
+        #main-content{
+            padding-bottom: 140px;
+        }
+
+        #main-img{
+            /*height: 738px;*/
+            height: 400px;
+            max-width: 1280px;
+            margin:0 auto;
+            background-image: url("img/index/banner_fpage.jpg");
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-size: 1280px;
+        }
+
+        #main-link{
+            margin-top: 10px;
+        }
+
+        #main-link>ul{
+            height:250px;
+            max-width: 1280px;
+            margin:0 auto;
+            padding:30px 0;
+            list-style: none;
+        }
+
+        #main-link>ul>li{
+            width: 269px;
+            float: left;
+            position:relative;
+            top:50%;
+            transform:translate(0,-50%);
+            text-align: center;
+        }
+
+        #main-link a{
+            display: block;
+            width:100%;
+        }
+
+        #main-link li.selected{
+            /*width: 470px;*/
+        }
+
+        #main-link a.selected>img{
+            box-shadow: 1px 5px 10px 2px #1d6cb6;
+            -moz-box-shadow:  1px 5px 10px 2px #1d6cb6;
+            -webkit-box-shadow:  1px 5px 10px 2px #1d6cb6;
+        }
+        #main-link a>img{
+            width:80%;
+        }
+        /* main content end */
+        /* footer start */
+        #footer{
+            position: absolute;
+            height: 100px;
+            padding:20px 0;
+            background-color: #373d41;
+            left: 0;
+            right:0;
+            bottom:0;
+        }
+
+        #footer *{
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        #footer .content{
+            max-width: 1280px;
+            height:100px;
+            line-height: 100px;
+            text-align: center;
+            margin:0 auto;
+        }
+
+        #footer a:hover{
+            color: #42bc52;
+        }
+        /* footer end */
+    </style>
+</head>
+<body>
+
+<div id="logo"></div>
+<div id="menu">
+    <ul>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">公司简介</a></li>
+        <li><a href="#">新闻中心</a></li>
+        <li><a href="#">解决方案</a></li>
+        <li><a href="#">产品中心</a></li>
+        <li><a href="#">服务支持</a></li>
+        <li><a href="#">人力资源</a></li>
+        <li><a href="#">联系我们</a></li>
+    </ul>
+</div>
+
+<div id="main-content">
+    <div id="main-img"></div>
+    <div id="main-link">
+        <ul>
+            <li class="menu-item selected"><a href="#"><img src="img/index/news.png" alt="新闻中心"/></a></li>
+            <li class="menu-item" ><a href="#"><img src="img/index/solution.png" alt="解决方案"/></a></li>
+            <li class="menu-item" ><a href="#"><img src="img/index/product.png" alt="产品中心"/></a></li>
+            <li class="menu-item" ><a href="#"><img src="img/index/resource.png" alt="人力资源"/></a></li>
+        </ul>
+    </div>
+</div>
+
+<div id="footer">
+    <div class="content">
+        © <a href="#">天津科畅慧通信息技术有限公司</a>|版权所有@2016 | 津ICP备16005576号
+    </div>
+</div>
+
+<script src="js/module/jquery/jquery1.9.0.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $(".menu-item.selected").css("width","470px");
+
+        $(".menu-item").on("mouseover",function(e){
+            var $_this = $(this);
+            var $_siblings = $_this.siblings();
+
+            $_this.addClass("selected");
+            $_siblings.removeClass("selected");
+
+            $_siblings.animate({
+                width: '269px'
+            }, 100);
+
+            $_this.animate({
+                width: '470px'
+            }, 100);
+
+        })
+    })
+</script>
+</body>
+</html>
